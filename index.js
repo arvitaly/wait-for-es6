@@ -17,7 +17,7 @@ function waitFor(checkFn, options = {}) {
             if ((yield checkFn())) {
                 return;
             }
-            yield new Promise((resolve) => setTimeout(resolve(), interval));
+            yield new Promise((resolve) => setTimeout(resolve, interval));
         } while (startTime > (+new Date()) - timeout);
         throw new Error("Timeout expired after " + timeout + "ms");
     });

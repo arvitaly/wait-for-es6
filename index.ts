@@ -10,7 +10,7 @@ export async function waitFor(checkFn: () => boolean | Promise<boolean>, options
         if ((await checkFn())) {
             return;
         }
-        await new Promise((resolve) => setTimeout(resolve(), interval));
+        await new Promise((resolve) => setTimeout(resolve, interval));
     } while (startTime > (+new Date()) - timeout);
     throw new Error("Timeout expired after " + timeout + "ms");
 }
